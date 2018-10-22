@@ -1,65 +1,24 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { TrailsService } from './trails.service';
+
 
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',
-	styleUrls: ['./app.component.sass']
+	styleUrls: ['./app.component.sass'],
+	providers: [TrailsService]
 })
-export class AppComponent implements OnInit {
-	myFirstReactiveForm: FormGroup;
+export class AppComponent {
 
-	constructor(private fb: FormBuilder) { }
+	trails = [];
+
+	constructor(private trailsService: TrailsService) { }
 
 	ngOnInit() {
-		this.initForm();
-	}
-
-	onSubmit() {
-		const controls = this.myFirstReactiveForm.controls;
-
-		if (this.myFirstReactiveForm.invalid) {
-			Object.keys(controls)
-				.forEach(controlName => controls[controlName].markAsTouched());
-
-			return;
-		}
-
-		/** TODO: Обработка данных формы */
-		console.log(this.myFirstReactiveForm.value);
-	}
-
-	isControlInvalid(controlName: string): boolean {
-		const control = this.myFirstReactiveForm.controls[controlName];
-
-		const result = control.invalid && control.touched;
-
-		return result;
-	}
-
-	private initForm() {
-		this.myFirstReactiveForm = this.fb.group({
-			firstName: ['', [
-				Validators.pattern(/^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$/)
-			]
-			],
-			lastName: ['', [
-				Validators.pattern(/^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$/)
-			]
-			],
-			email: ['', [
-				Validators.required, Validators.email
-			]
-			],
-			password: ['', [
-				Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$/)
-			]
-			],
-			repeartPssword: ['', [
-				Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$/)
-			]
-			]
-		});
+		//this.trails = this.trailsService.trails;
+		this.trailsService.getTrails().subscribe(trails => {
+			this.trails = trails
+		})
 	}
 
 }

@@ -1,0 +1,16 @@
+<mat-card class="onetrail">
+	<div class="onetrail_header">
+		<div class="onetrail_header-title">Tytuł: <span>{{ trail.name }}</span></div>
+		<div class="onetrail_header-number">Numer trasy: <span>{{ trail.number }}</span></div>
+	</div>
+	<div class="onetrail_image">
+		<img src="{{ trail.image }}" alt="Photo of a {{ trail.title }}">
+	</div>
+	<div class="onetrail_content">
+		<div class="onetrail_content-punktyPosrednie"> {{trail.viaPoints }}</div>
+		<div class="onetrail_content-trackColor">Kolor trasy: <span>{{ trail.trackColor }}</span></div>
+	</div>
+	<div class="onetrail_action">
+		<button mat-raised-button color="primary" class="onetrail_action-add">Dodaj</button>
+	</div>
+</mat-card>

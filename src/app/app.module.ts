@@ -4,20 +4,45 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { MaterialAppModule } from './ngmaterial.module';
-import { LoginFormComponent } from './login-form/login-form.component';
+import { RouterModule, Routes } from '@angular/router';
+
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { RegistPageComponent } from './pages/regist-page/regist-page.component';
+import { PagesComponent } from './pages/pages.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { from } from 'rxjs';
+import { TrasaComponent } from './trasa/trasa.component';
+import { HttpModule } from '@angular/http';
 
 
+const appRoutes: Routes = [
+	{ path: 'home', component: HomePageComponent },
+	{ path: 'login', component: LoginPageComponent },
+	{ path: 'regist', component: RegistPageComponent }
+]
 
 @NgModule({
 	declarations: [
 		AppComponent,
-		LoginFormComponent
+		HomePageComponent,
+		LoginPageComponent,
+		RegistPageComponent,
+		PagesComponent,
+		NavbarComponent,
+		TrasaComponent
+
 	],
 	imports: [
 		BrowserModule,
 		BrowserAnimationsModule,
 		ReactiveFormsModule,
-		MaterialAppModule
+		MaterialAppModule,
+		HttpModule,
+		RouterModule.forRoot(
+			appRoutes,
+			{ enableTracing: true }
+		)
 	],
 	providers: [],
 	bootstrap: [AppComponent]

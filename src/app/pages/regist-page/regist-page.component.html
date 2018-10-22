@@ -1,0 +1,53 @@
+<h1>Rejestracja</h1>
+
+
+
+<form [formGroup]="myFirstReactiveForm" class="fields-container" (submit)=onSubmit()>
+	<mat-form-field>
+		<!-- <label for="firstName">imię</label> -->
+		<input matInput type="text" id="firstName" formControlName="firstName" placeholder="Wprowadż swoje imię" />
+		<!-- <div class="error" *ngIf="isControlInvalid('firstName')">
+			Nazwa musi składać się wyłącznie z łacińskich liter.
+		</div> -->
+	</mat-form-field>
+	<mat-form-field>
+		<!-- <label for="lastName">nazwisko</label> -->
+		<input matInput type="text" id="lastName" formControlName="lastName" placeholder="Wprowadż swoje nazwisko" />
+		<!-- <div class="error" *ngIf="isControlInvalid('lastName')">
+			Nazwa musi składać się wyłącznie z łacińskich liter.
+		</div> -->
+	</mat-form-field>
+	<mat-form-field>
+		<!-- <label for="email">email</label> -->
+		<input matInput type="text" id="email" formControlName="email" placeholder="Wprowadż swój email" />
+		<!-- <div class="error" *ngIf="isControlInvalid('email')">
+			Wprowadź poprawny adres e-mail
+		</div> -->
+	</mat-form-field>
+	<mat-form-field>
+		<!-- <label for="password">hasło</label> -->
+		<input matInput type="password" id="password" formControlName="password" placeholder="Wprowadż swoje hasło" />
+	</mat-form-field>
+	<mat-form-field>
+		<!-- <label for="repeartPssword">powtórz hasło</label> -->
+		<input matInput type="password" id="repeartPssword" formControlName="repeartPssword" placeholder="Powtóż swoje hasło" />
+		<!-- <div class="error" *ngIf="isControlInvalid('repeartPssword')">
+			Hasła nie pasują / format danych ttu+ttl+number
+		</div> -->
+	</mat-form-field>
+
+	<div class="form_buttons">
+		<button mat-raised-button color="primary" type="submit">Wyślij</button>
+		<button mat-raised-button color="warn" type="reset">Anuluj</button>
+	</div>
+
+</form>
+
+<hr /><br />
+
+
+
+
+<div>
+	{{myFirstReactiveForm.value | json}}
+</div>

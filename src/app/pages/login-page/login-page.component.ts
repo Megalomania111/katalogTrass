@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+
 @Component({
-	selector: 'app-login-form',
-	templateUrl: './login-form.component.html',
-	styleUrls: ['./login-form.component.sass']
+	selector: 'app-login-page',
+	templateUrl: './login-page.component.html',
+	styleUrls: ['./login-page.component.sass']
 })
-export class LoginFormComponent implements OnInit {
+export class LoginPageComponent implements OnInit {
+
 	mySecondReactiveForm: FormGroup;
 
 	constructor(private fb: FormBuilder) { }
