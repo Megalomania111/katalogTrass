@@ -1,5 +1,5 @@
 import { Http } from '@angular/http';
-import { from } from "rxjs";
+
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 
@@ -11,11 +11,13 @@ export class TrailsService {
 	constructor(private http: Http) { }
 
 
-	//url: string = 'https://nodejs-restapi-adz.herokuapp.com/tracks';
+	//	url: string = 'https://nodejs-restapi-adz.herokuapp.com/tracks';
 	url: string = 'https://randomuser.me/api/?inc=gender,name,picture,location&results=8&nat=gb';
 	getTrails() {
+
 		return this.http.get(this.url)
 			.pipe(map(response => response.json()))
+
 			.pipe(map(response => response.results))
 			.pipe(map(trails => {
 				return trails.map(u => {
@@ -29,4 +31,7 @@ export class TrailsService {
 				})
 			})
 		}
+}
+//	console.log(results);
+
 }

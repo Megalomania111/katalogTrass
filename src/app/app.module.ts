@@ -14,9 +14,11 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { from } from 'rxjs';
 import { TrasaComponent } from './trasa/trasa.component';
 import { HttpModule } from '@angular/http';
+//import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+//import { TrailsService } from './trails.service';
 
-
-const appRoutes: Routes = [
+const Routes: Routes = [
+	{ path: '', redirectTo: '/home', pathMatch: 'full' },
 	{ path: 'home', component: HomePageComponent },
 	{ path: 'login', component: LoginPageComponent },
 	{ path: 'regist', component: RegistPageComponent }
@@ -40,7 +42,7 @@ const appRoutes: Routes = [
 		MaterialAppModule,
 		HttpModule,
 		RouterModule.forRoot(
-			appRoutes,
+			Routes,
 			{ enableTracing: true }
 		)
 	],
