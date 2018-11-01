@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UserService } from '../../user.service';
 
 
 @Component({
@@ -11,7 +12,7 @@ export class RegistPageComponent implements OnInit {
 
 	myFirstReactiveForm: FormGroup;
 
-	constructor(private fb: FormBuilder) { }
+	constructor(private fb: FormBuilder, private userService: UserService) { }
 
 	ngOnInit() {
 		this.initForm();
@@ -28,7 +29,10 @@ export class RegistPageComponent implements OnInit {
 		}
 
 		/** TODO: Обработка данных формы */
-		console.log(this.myFirstReactiveForm.value);
+		this.userService.register(this.myFirstReactiveForm.value)
+			.subscribe((r) => {
+				console.log(r);
+			});
 	}
 
 	isControlInvalid(controlName: string): boolean {

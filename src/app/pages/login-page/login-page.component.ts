@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-
+import { UserService } from '../../user.service';
 
 @Component({
 	selector: 'app-login-page',
@@ -11,7 +11,7 @@ export class LoginPageComponent implements OnInit {
 
 	mySecondReactiveForm: FormGroup;
 
-	constructor(private fb: FormBuilder) { }
+	constructor(private fb: FormBuilder, private userService: UserService) { }
 
 	ngOnInit() {
 		this.initForm();
@@ -29,6 +29,10 @@ export class LoginPageComponent implements OnInit {
 
 		/** TODO: Обработка данных формы */
 		console.log(this.mySecondReactiveForm.value);
+		this.userService.login(this.mySecondReactiveForm.value)
+			.subscribe((r) => {
+				console.log(r);
+			});
 	}
 
 	isControlInvalid(controlName: string): boolean {

@@ -11,17 +11,19 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegistPageComponent } from './pages/regist-page/regist-page.component';
 import { PagesComponent } from './pages/pages.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { from } from 'rxjs';
+import { UserService } from './user.service';
+
 import { TrasaComponent } from './trasa/trasa.component';
 import { HttpModule } from '@angular/http';
-//import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-//import { TrailsService } from './trails.service';
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 const Routes: Routes = [
 	{ path: '', redirectTo: '/home', pathMatch: 'full' },
 	{ path: 'home', component: HomePageComponent },
 	{ path: 'login', component: LoginPageComponent },
-	{ path: 'regist', component: RegistPageComponent }
+	{ path: 'regist', component: RegistPageComponent } // 'track/:id'
 ]
 
 @NgModule({
@@ -41,12 +43,13 @@ const Routes: Routes = [
 		ReactiveFormsModule,
 		MaterialAppModule,
 		HttpModule,
+		HttpClientModule,
 		RouterModule.forRoot(
 			Routes,
 			{ enableTracing: true }
 		)
 	],
-	providers: [],
+	providers: [UserService],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }
