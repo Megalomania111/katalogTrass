@@ -3,9 +3,9 @@
     <div class="onetrail_header-title">Tytuł: <span>{{ trail.title }}</span></div>
     <div class="onetrail_header-number">Numer trasy: <span>{{ trail.number }}</span></div>
   </div>
-  <div class="onetrail_image">
-    <!-- <img src="https://nodejs-restapi-adz.herokuapp.com/track/{{trail._id}}/{{ trail.image }}" alt="Photo of {{ trail.title }}"> -->
-  </div>
+  <!-- <div class="onetrail_image">
+    <img src="https://nodejs-restapi-adz.herokuapp.com/track/{{trail._id}}/{{ trail.image }}" alt="Photo of {{ trail.title }}">
+  </div> -->
   <div class="onetrail_content">
     <div class="onetrail_content-punktyPosrednie">
       <p>
@@ -15,7 +15,8 @@
     <div class="onetrail_content-trackColor">Kolor trasy: <span>{{ trail.trackColor }}</span></div>
   </div>
   <div class="onetrail_action">
+    <a mat-raised-button color="primary" routerLink="/trasa/{{ trail._id }}">Otworz</a>
     <a *ngIf="!isLoggedIn" mat-raised-button color="primary" routerLink="/login">Dodaj</a>
-    <a *ngIf="isLoggedIn" mat-raised-button color="primary" routerLink="/trasa/{{ trail._id }}">Dodaj</a>
+    <a *ngIf="isLoggedIn" mat-raised-button color="primary" routerLink="/trasa/new">Dodaj</a>
   </div>
 </mat-card>

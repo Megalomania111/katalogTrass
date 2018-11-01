@@ -3,10 +3,10 @@ $font_family: Roboto, "Helvetica Neue", sans-serif
 .onetrail
 	display: flex
 	flex-direction: column
+  justify-content: space-between
 	align-items: center
 	box-sizing: border-box
-	min-height: 500px
-	height: 100%
+	max-height: 260px
 	&>div
 		display: flex
 		flex-direction: column
@@ -14,26 +14,21 @@ $font_family: Roboto, "Helvetica Neue", sans-serif
 		font-size: 20px
 		margin-bottom: 15px
 		&:last-child
-			margin-bottom: 0
-	
+      flex-direction: row
+      justify-content: space-around
+      margin-bottom: 0
 	span
 		font-weight: bold	
-		
-
 .onetrail_header
 	justify-content: space-around
 
-.onetrail_header
-	height: 25%
-.onetrail_image
-	height: 32.5%
-.onetrail_content
-	height: 32.5%
+
 .onetrail_action
-	height: 10%
-
-
-
+  display: flex
+  justify-content: space-around
+  align-items: center
+  a
+    width: 45%
 .onetrail_content-punktyPosrednie	
 	p
 		display: -webkit-box
@@ -41,4 +36,17 @@ $font_family: Roboto, "Helvetica Neue", sans-serif
 		-webkit-box-orient: vertical
 		overflow: hidden
 		text-overflow: ellipsis
-		max-height: 50px
+		height: 50px
+
+
+
+// .onetrail_header
+// 	height: 25%
+// .onetrail_image
+// 	height: 32.5%
+// .onetrail_content
+// 	height: 32.5%
+// .onetrail_action
+// 	height: 10%
+
+

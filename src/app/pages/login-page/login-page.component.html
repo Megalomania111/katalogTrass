@@ -4,23 +4,23 @@
 
 <form [formGroup]="mySecondReactiveForm" class="fields-container" (submit)=onSubmit()>
 
-	<mat-form-field>
-		<!-- <label for="email">email</label> -->
-		<input matInput type="text" id="email" formControlName="email" placeholder="Wprowadż swój email" />
-		<!-- <div class="error" *ngIf="isControlInvalid('email')">
+  <mat-form-field>
+    <!-- <label for="email">email</label> -->
+    <input matInput type="text" id="email" formControlName="email" placeholder="Wprowadż swój email" />
+    <!-- <div class="error" *ngIf="isControlInvalid('email')">
 			Wprowadź poprawny adres e-mail
 		</div> -->
-	</mat-form-field>
-	<mat-form-field>
-		<!-- <label for="password">hasło</label> -->
-		<input matInput type="password" id="password" formControlName="password" placeholder="Wprowadż swoje hasło" />
-	</mat-form-field>
+  </mat-form-field>
+  <mat-form-field>
+    <!-- <label for="password">hasło</label> -->
+    <input matInput type="password" id="password" formControlName="password" placeholder="Wprowadż swoje hasło" />
+  </mat-form-field>
 
-	<div class="form_buttons">
-		<button mat-raised-button color="primary" type="submit">Zaloguj</button>
-		<button mat-raised-button color="warn" type="reset">Anuluj</button>
-		<button mat-stroked-button color="accent">Zarejestruj się</button>
-	</div>
+  <div class="form_buttons">
+    <button mat-raised-button color="primary" type="submit">Zaloguj</button>
+    <button mat-raised-button color="warn" type="reset">Anuluj</button>
+    <a mat-stroked-button color="accent" routerLink="/regist">Zarejestruj się</a>
+  </div>
 
 </form>
 
@@ -30,5 +30,5 @@
 
 
 <div>
-	{{mySecondReactiveForm.value | json}}
+  {{mySecondReactiveForm.value | json}}
 </div>
