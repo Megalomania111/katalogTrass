@@ -1,0 +1,33 @@
+<mat-card class="onetrail">
+  <form [formGroup]="mySecondReactiveForm" class="fields-container" (submit)=onSubmit()>
+    <div class="onetrail_header">
+      <div class="onetrail_header-title">
+        <mat-form-field>
+          <input matInput formControlName="title" placeholder="Tytuł" />
+        </mat-form-field>
+      </div>
+      <div class="onetrail_header-number">
+        <mat-form-field>
+          <input matInput formControlName="number" placeholder="	Numer trasy" />
+        </mat-form-field>
+
+      </div>
+    </div>
+    <div class="onetrail_content">
+      <mat-form-field>
+        <input matInput formControlName="viaPoints" placeholder="punkty pośrednie" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput formControlName="trackColor" placeholder="kolor trasy" />
+      </mat-form-field>
+
+
+    </div>
+    <div class="onetrail_action">
+      <button mat-raised-button color="primary" type="submit">Zaloguj</button>
+      <button mat-raised-button color="warn" type="reset">Anuluj</button>
+
+    </div>
+  </form>
+</mat-card>

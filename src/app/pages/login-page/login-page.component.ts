@@ -3,58 +3,58 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../../user.service';
 
 @Component({
-	selector: 'app-login-page',
-	templateUrl: './login-page.component.html',
-	styleUrls: ['./login-page.component.sass']
+  selector: 'app-login-page',
+  templateUrl: './login-page.component.html',
+  styleUrls: ['./login-page.component.sass']
 })
 export class LoginPageComponent implements OnInit {
 
-	mySecondReactiveForm: FormGroup;
+  mySecondReactiveForm: FormGroup;
 
-	constructor(private fb: FormBuilder, private userService: UserService) { }
+  constructor(private fb: FormBuilder, private userService: UserService) { }
 
-	ngOnInit() {
-		this.initForm();
-	}
+  ngOnInit() {
+    this.initForm();
+  }
 
-	onSubmit() {
-		const controls = this.mySecondReactiveForm.controls;
+  onSubmit() {
+    const controls = this.mySecondReactiveForm.controls;
 
-		if (this.mySecondReactiveForm.invalid) {
-			Object.keys(controls)
-				.forEach(controlName => controls[controlName].markAsTouched());
+    if (this.mySecondReactiveForm.invalid) {
+      Object.keys(controls)
+        .forEach(controlName => controls[controlName].markAsTouched());
 
-			return;
-		}
+      return;
+    }
 
-		/** TODO: Обработка данных формы */
-		console.log(this.mySecondReactiveForm.value);
-		this.userService.login(this.mySecondReactiveForm.value)
-			.subscribe((r) => {
-				console.log(r);
-			});
-	}
+    /** TODO: Обработка данных формы */
+    console.log(this.mySecondReactiveForm.value);
+    this.userService.login(this.mySecondReactiveForm.value)
+      .subscribe((r) => {
+        console.log(r);
+      });
+  }
 
-	isControlInvalid(controlName: string): boolean {
-		const control = this.mySecondReactiveForm.controls[controlName];
+  isControlInvalid(controlName: string): boolean {
+    const control = this.mySecondReactiveForm.controls[controlName];
 
-		const result = control.invalid && control.touched;
+    const result = control.invalid && control.touched;
 
-		return result;
-	}
+    return result;
+  }
 
-	private initForm() {
-		this.mySecondReactiveForm = this.fb.group({
+  private initForm() {
+    this.mySecondReactiveForm = this.fb.group({
 
-			email: ['', [
-				Validators.required, Validators.email
-			]
-			],
-			password: ['', [
-				Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$/)
-			]
-			]
-		});
-	}
+      email: ['', [
+        Validators.required, Validators.email
+      ]
+      ],
+      password: ['', [
+        Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$/)
+      ]
+      ]
+    });
+  }
 
 }

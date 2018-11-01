@@ -8,6 +8,7 @@ export class UserService {
   currentUser = {
     token: null,
   };
+  isLoggedIn = false;
 
   constructor(private http: Http) { }
 
@@ -25,6 +26,7 @@ export class UserService {
         tap((r: any) => {
           if (r.success) {
             this.currentUser.token = r.token;
+            this.isLoggedIn = true;
           }
 
           console.log(this.currentUser);

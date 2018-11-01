@@ -7,13 +7,13 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TrasaComponent implements OnInit {
   @Input() trail;
-  @Input() user;
+  @Input() isLoggedIn;
 
   constructor() {
-    console.log(this.user);
+    console.log(this.isLoggedIn);
   }
 
   ngOnInit() {
-    console.log(this.user);
+    console.log(this.isLoggedIn);
   }
 }

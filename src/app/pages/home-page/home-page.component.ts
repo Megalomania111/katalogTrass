@@ -9,15 +9,16 @@ import { UserService } from 'src/app/user.service';
   providers: [TrailsService]
 })
 export class HomePageComponent implements OnInit {
-  user: any;
+  isLoggedIn: any;
   trails = [];
 
   constructor(private trailsService: TrailsService, private userService: UserService) {
-    this.user = this.userService.currentUser;
+    this.isLoggedIn = this.userService.isLoggedIn;
   }
   ngOnInit() {
     // this.trails = this.trailsService.trails;
     this.trailsService.getTrails().subscribe(trails => {
+      console.log(trails);
       this.trails = trails;
     });
   }

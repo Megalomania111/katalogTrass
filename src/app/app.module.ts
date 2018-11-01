@@ -12,44 +12,56 @@ import { RegistPageComponent } from './pages/regist-page/regist-page.component';
 import { PagesComponent } from './pages/pages.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserService } from './user.service';
+import { TrailsService } from './trails.service';
 
 import { TrasaComponent } from './trasa/trasa.component';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
+import { NewTrasaPageComponent } from './pages/new-trasa-page/new-trasa-page.component';
+import { ChangePageComponent } from './pages/change-page/change-page.component';
+import { SerchTrasaComponent } from './serch-trasa/serch-trasa.component';
+import { TrasaPageComponent } from './pages/trasa-page/trasa-page.component';
 
 
 
 const Routes: Routes = [
-	{ path: '', redirectTo: '/home', pathMatch: 'full' },
-	{ path: 'home', component: HomePageComponent },
-	{ path: 'login', component: LoginPageComponent },
-	{ path: 'regist', component: RegistPageComponent } // 'track/:id'
-]
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomePageComponent },
+  { path: 'login', component: LoginPageComponent },
+  { path: 'regist', component: RegistPageComponent },
+  { path: 'change', component: ChangePageComponent },
+  { path: 'trasa/new', component: NewTrasaPageComponent },
+  { path: 'trasa/:id', component: TrasaPageComponent },
+];
 
 @NgModule({
-	declarations: [
-		AppComponent,
-		HomePageComponent,
-		LoginPageComponent,
-		RegistPageComponent,
-		PagesComponent,
-		NavbarComponent,
-		TrasaComponent
+  declarations: [
+    AppComponent,
+    HomePageComponent,
+    LoginPageComponent,
+    RegistPageComponent,
+    PagesComponent,
+    NavbarComponent,
+    TrasaComponent,
+    NewTrasaPageComponent,
+    ChangePageComponent,
+    SerchTrasaComponent,
+    TrasaPageComponent
 
-	],
-	imports: [
-		BrowserModule,
-		BrowserAnimationsModule,
-		ReactiveFormsModule,
-		MaterialAppModule,
-		HttpModule,
-		HttpClientModule,
-		RouterModule.forRoot(
-			Routes,
-			{ enableTracing: true }
-		)
-	],
-	providers: [UserService],
-	bootstrap: [AppComponent]
+  ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    MaterialAppModule,
+    HttpModule,
+    HttpClientModule,
+    RouterModule.forRoot(
+      Routes,
+      { enableTracing: true }
+    )
+  ],
+  providers: [UserService, TrailsService],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
