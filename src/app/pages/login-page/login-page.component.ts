@@ -27,7 +27,7 @@ export class LoginPageComponent implements OnInit {
       return;
     }
 
-    /** TODO: Обработка данных формы */
+
     console.log(this.mySecondReactiveForm.value);
     this.userService.login(this.mySecondReactiveForm.value)
       .subscribe((r) => {

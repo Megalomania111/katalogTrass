@@ -34,7 +34,7 @@ export class NewTrasaPageComponent implements OnInit {
       return;
     }
 
-    /** TODO: Обработка данных формы */
+
     console.log(this.mySecondReactiveForm.value);
     console.log(this.userService.currentUser.token);
     this.trailsService.createTrail(this.trail, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InF3ZWFzZDEyM0BnbWFpbC5jb20iLCJpYXQiOjE1NDEwOTk3MTYsImV4cCI6MTU0MTE4NjExNn0.cjff1YBbSLyNtwqdyW5NS6uWlMDyrIm8a_yK3G33Lo8')

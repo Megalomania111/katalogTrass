@@ -4,67 +4,67 @@ import { UserService } from '../../user.service';
 
 
 @Component({
-	selector: 'app-regist-page',
-	templateUrl: './regist-page.component.html',
-	styleUrls: ['./regist-page.component.sass']
+  selector: 'app-regist-page',
+  templateUrl: './regist-page.component.html',
+  styleUrls: ['./regist-page.component.sass']
 })
 export class RegistPageComponent implements OnInit {
 
-	myFirstReactiveForm: FormGroup;
+  myFirstReactiveForm: FormGroup;
 
-	constructor(private fb: FormBuilder, private userService: UserService) { }
+  constructor(private fb: FormBuilder, private userService: UserService) { }
 
-	ngOnInit() {
-		this.initForm();
-	}
+  ngOnInit() {
+    this.initForm();
+  }
 
-	onSubmit() {
-		const controls = this.myFirstReactiveForm.controls;
+  onSubmit() {
+    const controls = this.myFirstReactiveForm.controls;
 
-		if (this.myFirstReactiveForm.invalid) {
-			Object.keys(controls)
-				.forEach(controlName => controls[controlName].markAsTouched());
+    if (this.myFirstReactiveForm.invalid) {
+      Object.keys(controls)
+        .forEach(controlName => controls[controlName].markAsTouched());
 
-			return;
-		}
+      return;
+    }
 
-		/** TODO: Обработка данных формы */
-		this.userService.register(this.myFirstReactiveForm.value)
-			.subscribe((r) => {
-				console.log(r);
-			});
-	}
 
-	isControlInvalid(controlName: string): boolean {
-		const control = this.myFirstReactiveForm.controls[controlName];
+    this.userService.register(this.myFirstReactiveForm.value)
+      .subscribe((r) => {
+        console.log(r);
+      });
+  }
 
-		const result = control.invalid && control.touched;
+  isControlInvalid(controlName: string): boolean {
+    const control = this.myFirstReactiveForm.controls[controlName];
 
-		return result;
-	}
+    const result = control.invalid && control.touched;
 
-	private initForm() {
-		this.myFirstReactiveForm = this.fb.group({
-			firstName: ['', [
-				Validators.pattern(/^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$/)
-			]
-			],
-			lastName: ['', [
-				Validators.pattern(/^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$/)
-			]
-			],
-			email: ['', [
-				Validators.required, Validators.email
-			]
-			],
-			password: ['', [
-				Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$/)
-			]
-			],
-			repeartPssword: ['', [
-				Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$/)
-			]
-			]
-		});
-	}
+    return result;
+  }
+
+  private initForm() {
+    this.myFirstReactiveForm = this.fb.group({
+      firstName: ['', [
+        Validators.pattern(/^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$/)
+      ]
+      ],
+      lastName: ['', [
+        Validators.pattern(/^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$/)
+      ]
+      ],
+      email: ['', [
+        Validators.required, Validators.email
+      ]
+      ],
+      password: ['', [
+        Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$/)
+      ]
+      ],
+      repeartPssword: ['', [
+        Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$/)
+      ]
+      ]
+    });
+  }
 }

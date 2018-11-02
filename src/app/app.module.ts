@@ -18,7 +18,6 @@ import { TrasaComponent } from './trasa/trasa.component';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { NewTrasaPageComponent } from './pages/new-trasa-page/new-trasa-page.component';
-import { ChangePageComponent } from './pages/change-page/change-page.component';
 import { SerchTrasaComponent } from './serch-trasa/serch-trasa.component';
 import { TrasaPageComponent } from './pages/trasa-page/trasa-page.component';
 
@@ -29,7 +28,6 @@ const Routes: Routes = [
   { path: 'home', component: HomePageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'regist', component: RegistPageComponent },
-  { path: 'change', component: ChangePageComponent },
   { path: 'trasa/new', component: NewTrasaPageComponent },
   { path: 'trasa/:id', component: TrasaPageComponent },
 ];
@@ -44,7 +42,6 @@ const Routes: Routes = [
     NavbarComponent,
     TrasaComponent,
     NewTrasaPageComponent,
-    ChangePageComponent,
     SerchTrasaComponent,
     TrasaPageComponent
 

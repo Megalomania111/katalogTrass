@@ -1,6 +1,6 @@
 <div id="search-component">
 
-  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" (blur)="onBlurMethod()" />
 
   <ul class="search-result">
     <li *ngFor="let trail of trails$ | async">

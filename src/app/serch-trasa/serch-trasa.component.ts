@@ -29,4 +29,9 @@ export class SerchTrasaComponent implements OnInit {
       switchMap((term: string) => this.trailsService.searchTrails(term)),
     );
   }
+
+  onBlurMethod() {
+    console.log('blur')
+  }
+
 }
